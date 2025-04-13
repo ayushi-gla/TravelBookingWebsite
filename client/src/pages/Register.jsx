@@ -6,12 +6,15 @@ import { MdOutlineEmail } from "react-icons/md";
 import axios from "axios";
 import Header from "../components/Header";
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
+import { useContext } from 'react';
 
 
 const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [setAuth]=useContext(AuthContext)
 
   const navigate = useNavigate()
 
@@ -31,17 +34,24 @@ const Register = () => {
     try {
       const response = await axios.post("https://auth-backend-08hn.onrender.com/register", formData)
       console.log(response)
+      if(response.status===201){
+        setAuth({
+          token:response.data.token,
+          user:response.data.user
+        })
+        localStorage.setItem('token',response.data.token)
+        localStorage.setItem('user',response.data.user)
+       navigate('/')
+      }
     } catch (error) {
       console.log(error?.response)
-    }
-
-    setName('');
-    setEmail('');
-    setPassword('');
+      alert(error.response.data?.messasge || error.response.data?.error || "Something went wrong")
+    }finally{
+      setName('');
+      setEmail('');
+      setPassword('');
+    } 
   }
-
-
-
 
   return (
 

@@ -1,7 +1,10 @@
 import "../assets/styles/header.css"
 import { useNavigate } from "react-router-dom"
-const Header = () => {
+import { AuthContext } from "../context/AuthContext"
+import { useContext } from "react"
 
+const Header = () => {
+    const [auth,setAuth]=useContext(AuthContext)
     const navigate=useNavigate()
     
     return (
@@ -21,6 +24,7 @@ const Header = () => {
                     </select>
                 </div>
                 <div className="btns">
+                    <span>Hii {auth.user}</span>
                     <button className="login-btn" onClick={()=>{navigate('/login')}} >Login </button>
                     <button className="signup-btn" onClick={()=>{navigate('/register')}}>Sign Up </button>
                 </div>

@@ -33,14 +33,13 @@ const Register = () => {
 
     try {
       const response = await axios.post("https://auth-backend-08hn.onrender.com/register", formData)
-      console.log(response)
       if(response.status===201){
         setAuth({
           token:response.data.token,
           user:response.data.user
         })
+        localStorage.setItem('user', JSON.stringify(response.data.user))
         localStorage.setItem('token',response.data.token)
-        localStorage.setItem('user',response.data.user)
        navigate('/')
       }
     } catch (error) {

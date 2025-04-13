@@ -4,29 +4,37 @@ import { AuthContext } from "../context/AuthContext"
 import { useContext } from "react"
 
 const Header = () => {
-    const [auth,setAuth]=useContext(AuthContext)
-    const navigate=useNavigate()
-    
+    const [auth, setAuth, logout] = useContext(AuthContext)
+    const navigate = useNavigate()
+
     return (
         <div className="header">
             <div className="nav">
                 <div className="logo">tripVista</div>
                 <div className="menus">
 
-                    {['Home', 'Contact', 'About us', 'FAQs'].map((item, i) => (
+                    {['Home', 'Trips', 'Destinations', 'Contact', 'About'].map((item, i) => (
                         <span className="menu-item" key={i}> {item}</span>
 
                     ))}
 
-                    <select name="dropdown" id="dropdown" >
-                        <option value="">Dropdown</option>
+                    {/* <select name="dropdown" id="dropdown" >
+                        <option value="">Dropdown</option>a
                         <option value="">Option 2</option>
-                    </select>
+                    </select> */}
                 </div>
+
                 <div className="btns">
-                    <span>Hii {auth.user}</span>
-                    <button className="login-btn" onClick={()=>{navigate('/login')}} >Login </button>
-                    <button className="signup-btn" onClick={()=>{navigate('/register')}}>Sign Up </button>
+                    <span className="username codystar-light">Hii {auth?.user?.fullname?.firstname}</span>
+                    {!auth?.token && (
+                        <>
+                            <button className="login-btn" onClick={() => navigate('/login')}>Login</button>
+                            <button className="signup-btn" onClick={() => navigate('/register')}>Sign Up</button>
+                        </>
+                    )}
+
+
+                    <button className="logout-btn" onClick={logout}>Logout</button>
                 </div>
             </div>
         </div>

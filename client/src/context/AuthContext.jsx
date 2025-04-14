@@ -1,5 +1,6 @@
 import { createContext, useState } from "react"
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 export const AuthContext = createContext()
 
@@ -8,6 +9,8 @@ export const AuthProvider = ({ children }) => {
       token: localStorage.getItem('token') || null,
       user: JSON.parse(localStorage.getItem('user')) || null
    })
+
+   const navigate = useNavigate()
    const logout = async () => {
       console.log(auth.token)
       try {
@@ -16,9 +19,17 @@ export const AuthProvider = ({ children }) => {
                authorization: `Bearer ${auth.token}`,
             },
          })
-         console.log(response)
+         if (response.status === 200) {
+            localStorage.removeItem('token')
+            localStorage.removeItem('user')
+            setAuth({
+               token: null,
+               user: null
+            })
+            navigate('/')
+         }
       } catch (error) {
-         console.log('error message:', error.response?.data?.message || error.message);
+         alert(error.response.data.message)
       }
    }
 

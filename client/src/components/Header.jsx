@@ -26,15 +26,23 @@ const Header = () => {
 
                 <div className="btns">
                     <span className="username codystar-light">Hii {auth?.user?.fullname?.firstname}</span>
-                    {!auth?.token && (
-                        <>
-                            <button className="login-btn" onClick={() => navigate('/login')}>Login</button>
-                            <button className="signup-btn" onClick={() => navigate('/register')}>Sign Up</button>
-                        </>
-                    )}
 
 
-                    <button className="logout-btn" onClick={logout}>Logout</button>
+                    {auth.token ?
+                        (
+                            <button className="logout-btn" onClick={logout}>Logout</button>
+                        ) :
+                        (
+                            <>
+                                <button className="login-btn" onClick={() => navigate('/login')}>Login</button>
+                                <button className="signup-btn" onClick={() => navigate('/register')}>Sign Up</button>
+                            </>
+                        )
+
+                    }
+
+
+
                 </div>
             </div>
         </div>

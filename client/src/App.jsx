@@ -7,13 +7,11 @@ import Dashboard from './pages/Dashboard'
 import { Routes, Route } from 'react-router-dom'
 import UnprotectedRoutes from './components/UnprotectedRoutes'
 import ProtectedRoutes from './components/ProtectedRoutes'
-// import Navbar from './components/Navbar'
 
 const App = () => {
 
   return (
     <div >
-      {/* <Navbar/> */}
 
       <Routes>
 

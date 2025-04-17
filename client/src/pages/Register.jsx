@@ -14,7 +14,7 @@ const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [setAuth]=useContext(AuthContext)
+  const [auth, setAuth] = useContext(AuthContext)
 
   const navigate = useNavigate()
 
@@ -33,23 +33,23 @@ const Register = () => {
 
     try {
       const response = await axios.post("https://auth-backend-08hn.onrender.com/register", formData)
-      if(response.status===201){
+      if (response.status === 201) {
         setAuth({
-          token:response.data.token,
-          user:response.data.user
+          token: response.data.token,
+          user: response.data.user
         })
         localStorage.setItem('user', JSON.stringify(response.data.user))
-        localStorage.setItem('token',response.data.token)
-       navigate('/')
+        localStorage.setItem('token', response.data.token)
+        navigate('/')
       }
     } catch (error) {
       console.log(error?.response)
       alert(error.response.data?.messasge || error.response.data?.error || "Something went wrong")
-    }finally{
+    } finally {
       setName('');
       setEmail('');
       setPassword('');
-    } 
+    }
   }
 
   return (
@@ -99,7 +99,7 @@ const Register = () => {
           </form>
 
           <span className='text-footer'>Already have a account?
-            <span className='text-login'  onClick={() => navigate('/login')}> Login</span>
+            <span className='text-login' onClick={() => navigate('/login')}> Login</span>
           </span>
 
         </div>

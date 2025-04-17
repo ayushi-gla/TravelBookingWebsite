@@ -12,7 +12,6 @@ export const AuthProvider = ({ children }) => {
 
    const navigate = useNavigate()
    const logout = async () => {
-      console.log(auth.token)
       try {
          const response = await axios.get('https://auth-backend-08hn.onrender.com/logout', {
             headers: {

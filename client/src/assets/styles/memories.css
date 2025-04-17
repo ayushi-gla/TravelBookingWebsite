@@ -1,0 +1,98 @@
+.Memories-wrapper {
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+        "Grid-card-1 Grid-card-1 Grid-card-2 Grid-card-2 Grid-card-4 Grid-card-4"
+        "Grid-card-1 Grid-card-1 Grid-card-3 Grid-card-3 Grid-card-4 Grid-card-4"
+        "Grid-card-7 Grid-card-7 Grid-card-6 Grid-card-6 Grid-card-4 Grid-card-4"
+        "Grid-card-7 Grid-card-7 Grid-card-6 Grid-card-6 Grid-card-5 Grid-card-5"
+    ;
+    gap: 10px;
+}
+
+.Memories-wrapper .Memories-card {
+    width: 100%;
+    height: 280px;
+    margin: 20px;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.Memories-wrapper .Memories-card::after{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.Memories-wrapper .Memories-card .content{
+    position: absolute;
+    top: -80%;
+    left: 25px;
+    transition:.6s;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap:8px;
+    z-index: 9;
+
+}
+.Memories-wrapper .Memories-card:hover .content{
+    top: 0%;
+}
+
+.Memories-wrapper .Memories-card .content h3{
+    font-size: 20px;
+    color: var(--color-primary);
+}
+.Memories-wrapper .Memories-card .content a{
+    color: red;
+}
+.Memories-wrapper .Memories-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.Memories-wrapper .Memories-card:hover img{
+    filter: grayscale(40%) blur(2px);
+    transform:scale(1.1);
+}
+
+.Memories-wrapper .Memories-card:nth-child(1) {
+    height: auto;
+    grid-area: Grid-card-1;
+}
+
+.Memories-wrapper .Memories-card:nth-child(2) {
+    height: 250px;
+    grid-area: Grid-card-2;
+}
+
+.Memories-wrapper .Memories-card:nth-child(3) {
+    height: 250px;
+    grid-area: Grid-card-3;
+}
+
+.Memories-wrapper .Memories-card:nth-child(4) {
+    height: 550px;
+    grid-area: Grid-card-4;
+}
+
+.Memories-wrapper .Memories-card:nth-child(5) {
+    height:250px;
+    grid-area: Grid-card-5;
+}
+
+.Memories-wrapper .Memories-card:nth-child(6) {
+    height: 250px;
+    grid-area: Grid-card-6;
+}
+.Memories-wrapper .Memories-card:nth-child(7) {
+    height:250px;
+    grid-area: Grid-card-7;
+}

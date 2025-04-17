@@ -146,3 +146,7 @@
 .login-btn:hover {
    background-color: rgba(194, 194, 194, 0.699);
 }
+
+.swiper{
+   width:100% !important
+}

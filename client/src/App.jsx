@@ -3,6 +3,7 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import HotelBooking from './pages/HotelBooking'
 import Header from './components/Header'
+import Memories from './components/Memories'
 import Dashboard from './pages/Dashboard'
 import { Routes, Route } from 'react-router-dom'
 import UnprotectedRoutes from './components/UnprotectedRoutes'
@@ -25,6 +26,8 @@ const App = () => {
           <Route path="/hotelBooking" element={<HotelBooking />} />
         </Route>
       </Routes>
+      
+      <Memories/>
     </div>
   )
 }

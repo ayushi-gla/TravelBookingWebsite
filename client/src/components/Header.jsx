@@ -6,11 +6,11 @@ import { useContext, useState } from "react"
 const Header = () => {
     const [auth, setAuth, logout] = useContext(AuthContext)
     const navigate = useNavigate()
-    const [activeMenu, setActiveMenu] = useState("Home") // default selected
+    const [activeMenu, setActiveMenu] = useState("Home")
 
     const handleMenuClick = (item) => {
         setActiveMenu(item)
-        // navigate(`/${item.toLowerCase() === "home" ? "" : item.toLowerCase()}`)
+        navigate(`/${item.toLowerCase() === "home" ? "" : item.toLowerCase()}`)
     }
 
     return (
@@ -18,7 +18,7 @@ const Header = () => {
             <div className="nav">
                 <div className="logo">TRIPVISTA</div>
                 <div className="menus">
-                    {['Home', 'Trips', 'Destinations', 'Contact', 'About'].map((item, i) => (
+                    {['Home', 'Trips', 'Destinations', 'Contact'].map((item, i) => (
                         <span
                             className={`menu-item ${activeMenu === item ? 'active' : ''}`}
                             key={i}
@@ -27,6 +27,12 @@ const Header = () => {
                             {item}
                         </span>
                     ))}
+                    <select id="dropdown" >
+                        <option value="">--Bookings--</option>
+                        <option value="Hotel Booking">Hotel Booking</option>
+                        <option value="Flight Booking">Flight Booking</option>
+
+                    </select>
                 </div>
 
                 <div className="btns">

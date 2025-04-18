@@ -13,7 +13,16 @@
   -moz-osx-font-smoothing: grayscale;
 
 
-  --color-primary: #011b19
+  --color-primary: #011b19;
+  /* --primary-color: lightseagreen;
+  --black: #000000;
+  --white: #ffffff;
+  --light-gray: #f5f5f5;
+  --medium-gray: #dddddd;
+  --dark-gray: #333333;
+  --border-radius: 6px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease; */
 }
 
 body {

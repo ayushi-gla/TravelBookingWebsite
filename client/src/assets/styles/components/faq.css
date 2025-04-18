@@ -1,0 +1,208 @@
+
+:root {
+  --primary-color: lightseagreen;
+  --black: #000000;
+  --white: #ffffff;
+  --light-gray: #f7f9fc;
+  --medium-gray: #e5e7eb;
+  --text-gray: #4b5563;
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+  --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.faq-section {
+  background-color: var(--light-gray);
+  width: 100%;
+  padding: 5rem 1.5rem;
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--black);
+}
+
+.faq-subtitle {
+  text-align: center;
+  color: var(--text-gray);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.faq-item {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  transition: all var(--transition-speed) ease;
+  border-left: 4px solid transparent;
+}
+
+.faq-item.active {
+  border-left: 4px solid var(--primary-color);
+}
+
+.faq-question-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.faq-item:hover .faq-question-container {
+  background-color: rgba(32, 178, 170, 0.05);
+}
+
+.faq-item.active .faq-question-container {
+  background-color: rgba(32, 178, 170, 0.08);
+}
+
+.faq-question {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--black);
+  flex: 1;
+}
+
+.faq-icon {
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-speed) ease;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(0);
+}
+
+.faq-answer-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+.faq-answer-container.open {
+  max-height: 1000px;
+  transition: max-height 1s ease-in-out;
+}
+
+.faq-answer {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  color: var(--text-gray);
+  line-height: 1.7;
+  font-size: 1rem;
+  border-top: 1px solid var(--medium-gray);
+  margin-top: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, margin-top 0.3s ease;
+}
+
+.faq-answer-container.open .faq-answer {
+  margin-top: 1rem;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-contact {
+  text-align: center;
+  background-color: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  border-top: 4px solid var(--primary-color);
+}
+
+.faq-contact h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--black);
+}
+
+.faq-contact p {
+  color: var(--text-gray);
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.faq-contact-button {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 0.875rem 1.75rem;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  box-shadow: 0 4px 12px rgba(32, 178, 170, 0.3);
+}
+
+.faq-contact-button:hover {
+  background-color: var(--black);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .faq-section {
+    padding: 3rem 1rem;
+  }
+  
+  .faq-title {
+    font-size: 1.75rem;
+  }
+  
+  .faq-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .faq-question {
+    font-size: 1rem;
+  }
+  
+  .faq-question-container {
+    padding: 1.25rem;
+  }
+  
+  .faq-contact {
+    padding: 1.75rem;
+  }
+}
+
+/* Smooth transition for active item shadow */
+.faq-item {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item.active {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+  z-index: 2;
+}

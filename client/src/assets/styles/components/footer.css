@@ -1,0 +1,82 @@
+/* Footer.css */
+.footer {
+   background-color: #000000;
+   color: #ffffff;
+   padding: 3rem 1rem;
+ }
+ 
+ .footer-container {
+   max-width: 1200px;
+   margin: 0 auto;
+ }
+ 
+ .footer-grid {
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 2rem;
+ }
+ 
+ .footer-title {
+   font-size: 1.25rem;
+   font-weight: 600;
+   margin-bottom: 1rem;
+   color: #ffffff;
+ }
+ 
+ .footer-description {
+   color: #b0b0b0;
+   line-height: 1.6;
+ }
+ 
+ .footer-links {
+   list-style-type: none;
+   padding: 0;
+ }
+ 
+ .footer-links li {
+   margin-bottom: 0.5rem;
+ }
+ 
+ .footer-link {
+   color: #b0b0b0;
+   text-decoration: none;
+   transition: all 0.3s ease;
+ }
+ 
+ .footer-link:hover {
+   color: lightseagreen;
+ }
+ 
+ .payment-methods {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.5rem;
+ }
+ 
+ .payment-card {
+   background-color: #ffffff;
+   width: 4rem;
+   height: 2.5rem;
+   border-radius: 4px;
+ }
+ 
+ .footer-bottom {
+   border-top: 1px solid #333333;
+   margin-top: 2rem;
+   padding-top: 2rem;
+   text-align: center;
+   color: #b0b0b0;
+ }
+ 
+ /* Responsive styles */
+ @media screen and (min-width: 576px) {
+   .footer-grid {
+     grid-template-columns: repeat(2, 1fr);
+   }
+ }
+ 
+ @media screen and (min-width: 992px) {
+   .footer-grid {
+     grid-template-columns: repeat(4, 1fr);
+   }
+ }

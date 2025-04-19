@@ -1,31 +1,40 @@
-import { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send, Instagram, Facebook, Twitter } from 'lucide-react';
-import FAQ from '../components/common/FAQ';
-import Footer from '../components/common/Footer';
-import '../assets/styles/contact.css';
+import { useState } from "react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  Send,
+  Instagram,
+  Facebook,
+  Twitter,
+} from "lucide-react";
+import FAQ from "../components/common/FAQ";
+import Footer from "../components/common/Footer";
+import "../assets/styles/contact.css";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     setSubmitted(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setFormData({ name: "", email: "", subject: "", message: "" });
     setTimeout(() => {
       setSubmitted(false);
     }, 5000);
@@ -34,38 +43,40 @@ export default function Contact() {
   return (
     <div className="contact-page">
       {/* Hero Section */}
-      <div className="hero-section">
-        <img
-          src="/api/placeholder/1800/600"
-          alt="Travel destination"
-          className="hero-image"
-        />
-        <div className="hero-overlay">
-          <h1 className="hero-title">Contact Us</h1>
+      <div class="hero-section">
+        <div class="hero-overlay">
+          <div class="hero-title-box">
+            <h1 class="hero-title">Let's Connect</h1>
+          </div>
         </div>
       </div>
 
       {/* Main Content */}
       <div className="main-content">
         <div className="content-grid">
-
           {/* Left Column - Contact Form */}
           <div className="contact-form-container">
             <h2 className="section-title">Get in Touch</h2>
             <p className="section-description">
-              Have questions about your booking or need assistance planning your next adventure?
-              Fill out the form below and our travel experts will get back to you shortly.
+              Have questions about your booking or need assistance planning your
+              next adventure? Fill out the form below and our travel experts
+              will get back to you shortly.
             </p>
 
             {submitted ? (
               <div className="form-success-message">
                 <h3 className="success-title">Thank You!</h3>
-                <p>Your message has been sent successfully. We'll respond as soon as possible.</p>
+                <p>
+                  Your message has been sent successfully. We'll respond as soon
+                  as possible.
+                </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="contact-form">
                 <div className="form-group">
-                  <label htmlFor="name" className="form-label">Your Name</label>
+                  <label htmlFor="name" className="form-label">
+                    Your Name
+                  </label>
                   <input
                     type="text"
                     id="name"
@@ -74,12 +85,14 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     className="form-input"
-                    placeholder="John Doe"
+                    placeholder="Name"
                   />
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="email" className="form-label">Email Address</label>
+                  <label htmlFor="email" className="form-label">
+                    Email Address
+                  </label>
                   <input
                     type="email"
                     id="email"
@@ -88,12 +101,14 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     className="form-input"
-                    placeholder="john@example.com"
+                    placeholder="abc@example.com"
                   />
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="subject" className="form-label">Subject</label>
+                  <label htmlFor="subject" className="form-label">
+                    Subject
+                  </label>
                   <input
                     type="text"
                     id="subject"
@@ -107,7 +122,9 @@ export default function Contact() {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="message" className="form-label">Your Message</label>
+                  <label htmlFor="message" className="form-label">
+                    Your Message
+                  </label>
                   <textarea
                     id="message"
                     name="message"
@@ -120,10 +137,7 @@ export default function Contact() {
                   ></textarea>
                 </div>
 
-                <button
-                  type="submit"
-                  className="submit-button"
-                >
+                <button type="submit" className="submit-button">
                   <Send size={18} className="button-icon" />
                   Send Message
                 </button>
@@ -160,9 +174,12 @@ export default function Contact() {
                   <div className="contact-text">
                     <h3 className="contact-category">Address</h3>
                     <p>
-                      123 Adventure Avenue<br />
-                      Suite 500<br />
-                      Travelville, TX 98765<br />
+                      123 Adventure Avenue
+                      <br />
+                      Suite 500
+                      <br />
+                      Travelville, TX 98765
+                      <br />
                       United States
                     </p>
                   </div>
@@ -177,18 +194,6 @@ export default function Contact() {
                     <p>Sunday: Closed</p>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            {/* Map */}
-            <div className="info-card">
-              <h2 className="section-title">Find Us</h2>
-              <div className="map-container">
-                <img
-                  src="/api/placeholder/800/400"
-                  alt="Map location"
-                  className="map-image"
-                />
               </div>
             </div>
 
@@ -207,7 +212,8 @@ export default function Contact() {
                 </a>
               </div>
               <p className="social-text">
-                Stay connected with us on social media for the latest travel deals, destination tips, and company updates.
+                Stay connected with us on social media for the latest travel
+                deals, destination tips, and company updates.
               </p>
             </div>
           </div>
@@ -219,7 +225,8 @@ export default function Contact() {
         <div className="newsletter-container">
           <h2 className="newsletter-title">Subscribe to Our Newsletter</h2>
           <p className="newsletter-description">
-            Stay updated with our latest travel deals, exclusive offers, and destination guides delivered straight to your inbox.
+            Stay updated with our latest travel deals, exclusive offers, and
+            destination guides delivered straight to your inbox.
           </p>
           <div className="newsletter-form">
             <input
@@ -227,9 +234,7 @@ export default function Contact() {
               placeholder="Your email address"
               className="newsletter-input"
             />
-            <button className="newsletter-button">
-              Subscribe
-            </button>
+            <button className="newsletter-button">Subscribe</button>
           </div>
         </div>
       </div>

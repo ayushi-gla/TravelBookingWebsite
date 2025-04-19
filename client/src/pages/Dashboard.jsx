@@ -2,9 +2,11 @@ import React from 'react'
 import "../assets/styles/dashboard.css"
 import Header from "../components/Header"
 import Marquee from '../components/Marquee'
+import About from '../components/About'
 import ImageSwiper from '../components/Swiper'
 import Memories from '../components/Memories'
 import Trips from '../components/Trips'
+import Footer from '../components/common/Footer'
 
 const Dashboard = () => {
   return (
@@ -30,6 +32,8 @@ const Dashboard = () => {
           <ImageSwiper/>
         </div> */}
         <Memories />
+        <About/>
+        <Footer/>
       </div>
     </>
   )

@@ -27,8 +27,8 @@ const Header = () => {
                             {item}
                         </span>
                     ))}
-                    <select id="dropdown" >
-                        <option value="">--Bookings--</option>
+                    <select id="dropdown" className="dropdown" >
+                        <option value="">Bookings</option>
                         <option value="Hotel Booking">Hotel Booking</option>
                         <option value="Flight Booking">Flight Booking</option>
 

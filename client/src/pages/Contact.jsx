@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import FAQ from "../components/common/FAQ";
 import Footer from "../components/common/Footer";
+import Header from "../components/Header";
 import "../assets/styles/contact.css";
 
 export default function Contact() {
@@ -42,11 +43,12 @@ export default function Contact() {
 
   return (
     <div className="contact-page">
+      <Header />
       {/* Hero Section */}
       <div class="hero-section">
         <div class="hero-overlay">
           <div class="hero-title-box">
-            <h1 class="hero-title">Let's Connect</h1>
+            <h1 class="hero-title">need help?</h1>
           </div>
         </div>
       </div>
@@ -54,97 +56,6 @@ export default function Contact() {
       {/* Main Content */}
       <div className="main-content">
         <div className="content-grid">
-          {/* Left Column - Contact Form */}
-          <div className="contact-form-container">
-            <h2 className="section-title">Get in Touch</h2>
-            <p className="section-description">
-              Have questions about your booking or need assistance planning your
-              next adventure? Fill out the form below and our travel experts
-              will get back to you shortly.
-            </p>
-
-            {submitted ? (
-              <div className="form-success-message">
-                <h3 className="success-title">Thank You!</h3>
-                <p>
-                  Your message has been sent successfully. We'll respond as soon
-                  as possible.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="contact-form">
-                <div className="form-group">
-                  <label htmlFor="name" className="form-label">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="form-input"
-                    placeholder="Name"
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="email" className="form-label">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="form-input"
-                    placeholder="abc@example.com"
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="subject" className="form-label">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    required
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="form-input"
-                    placeholder="Booking Inquiry"
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="message" className="form-label">
-                    Your Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="5"
-                    required
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="form-textarea"
-                    placeholder="Tell us how we can help you..."
-                  ></textarea>
-                </div>
-
-                <button type="submit" className="submit-button">
-                  <Send size={18} className="button-icon" />
-                  Send Message
-                </button>
-              </form>
-            )}
-          </div>
-
           {/* Right Column - Contact Info */}
           <div className="contact-info-column">
             {/* Contact Information */}
@@ -217,10 +128,83 @@ export default function Contact() {
               </p>
             </div>
           </div>
+          {/* Left Column - Contact Form */}
+          <div className="contact-form-container">
+            <h2 className="section-title">Get in Touch</h2>
+            <p className="section-description">
+              Have questions about your booking or need assistance planning your
+              next adventure? Fill out the form below and our travel experts
+              will get back to you shortly.
+            </p>
+
+            {submitted ? (
+              <div className="form-success-message">
+                <h3 className="success-title">Thank You!</h3>
+                <p>
+                  Your message has been sent successfully. We'll respond as soon
+                  as possible.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="contact-form">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="form-input"
+                  placeholder="Name"
+                />
+
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="form-input"
+                  placeholder="abc@example.com"
+                />
+
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  required
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className="form-input"
+                  placeholder="Booking Inquiry"
+                />
+
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="form-textarea"
+                  placeholder="Tell us how we can help you..."
+                ></textarea>
+
+                <button type="submit" className="submit-button">
+                  <Send size={18} className="button-icon" />
+                  Send Message
+                </button>
+              </form>
+            )}
+          </div>
+
+          {/* Right Column - Contact Info */}
         </div>
       </div>
 
       {/* Newsletter */}
+
       <div className="newsletter-section">
         <div className="newsletter-container">
           <h2 className="newsletter-title">Subscribe to Our Newsletter</h2>
@@ -238,7 +222,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <FAQ />
       <Footer />
     </div>
   );

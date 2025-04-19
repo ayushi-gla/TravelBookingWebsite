@@ -1,12 +1,12 @@
-import React from 'react'
-import "../assets/styles/dashboard.css"
-import Header from "../components/Header"
-import Marquee from '../components/Marquee'
-import About from '../components/About'
-import ImageSwiper from '../components/Swiper'
-import Memories from '../components/Memories'
-import Trips from '../components/Trips'
-import Footer from '../components/common/Footer'
+import React from "react";
+import "../assets/styles/dashboard.css";
+import Header from "../components/Header";
+import Marquee from "../components/Marquee";
+import About from "../components/About";
+import ImageSwiper from "../components/Swiper";
+import Memories from "../components/Memories";
+import Trips from "../components/Trips";
+import Footer from "../components/common/Footer";
 
 const Dashboard = () => {
   return (
@@ -14,7 +14,10 @@ const Dashboard = () => {
       <Header />
       <div className="dashboard-container">
         <div className="dashboard-hero">
-          <h2>Explore The <span className='text-world'>World</span>,<br />One Unforgettable Journey.</h2>
+          <h2>
+            Explore The <span className="text-world">World</span>,<br />
+            One Unforgettable Journey.
+          </h2>
 
           <div className="search-wrapper">
             <i className="ri-search-line search-icon"></i>
@@ -25,18 +28,17 @@ const Dashboard = () => {
             />
           </div>
         </div>
-        <div className='section-service'>
+        <div className="section-service">
           <Marquee />
         </div>
-        {/* <div className='destination-places'>
-          <ImageSwiper/>
-        </div> */}
         <Memories />
-        <About/>
-        <Footer/>
-      </div>
-    </>
-  )
-}
 
-export default Dashboard
+        <h1 style={{ color: "black" }}>(Yha Kuch likh lena) </h1>
+        <About />
+      </div>
+      <Footer />
+    </>
+  );
+};
+
+export default Dashboard;

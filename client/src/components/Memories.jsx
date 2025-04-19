@@ -1,66 +1,96 @@
-import React from 'react'
-import '../assets/styles/memories.css'
+import React, { useState, useEffect } from "react";
+import "../assets/styles/memories.css";
 
 const Memories = () => {
-    return (
-        <div className='Memories-wrapper'>
-            <div className="Memories-card">
-                <img src="https://5.imimg.com/data5/SELLER/Default/2020/12/VW/MH/OD/8118956/student-group-tour-500x500.jpg" alt="Group Tour" />
-                <div className="content">
-                    <h3>Small Group Departures</h3>
-                    <button className='btn'>View Tours</button>
-                </div>
-            </div>
+  const [slides, setSlides] = useState([
+    {
+      id: 1,
+      image: "https://i.ibb.co/qCkd9jS/img1.jpg",
+      name: "Switzerland",
+      description: "X-Dev, Transforming code into visual poetry..!",
+    },
+    {
+      id: 2,
+      image: "https://i.ibb.co/jrRb11q/img2.jpg",
+      name: "Finland",
+      description: "X-Dev, Transforming code into visual poetry..!",
+    },
+    {
+      id: 3,
+      image: "https://i.ibb.co/NSwVv8D/img3.jpg",
+      name: "Iceland",
+      description: "X-Dev, Transforming code into visual poetry..!",
+    },
+    {
+      id: 4,
+      image: "https://i.ibb.co/Bq4Q0M8/img4.jpg",
+      name: "Australia",
+      description: "X-Dev, Transforming code into visual poetry..!",
+    },
+    {
+      id: 5,
+      image: "https://i.ibb.co/jTQfmTq/img5.jpg",
+      name: "Netherland",
+      description: "X-Dev, Transforming code into visual poetry..!",
+    },
+    {
+      id: 6,
+      image: "https://i.ibb.co/RNkk6L0/img6.jpg",
+      name: "Ireland",
+      description: "X-Dev, Transforming code into visual poetry..!",
+    },
+  ]);
 
-            <div className="Memories-card">
-                <img src="https://img.freepik.com/free-photo/lovely-couple-looking-away-holding-each-other_23-2148301321.jpg" alt="Couple" />
-                <div className="content">
-                    <h3>Affordable Dreams</h3>
-                    <button className='btn'>View Tours</button>
-                </div>
-            </div>
+  // Handle next slide function
+  const handleNext = () => {
+    setSlides((prevSlides) => {
+      const updatedSlides = [...prevSlides];
+      const firstSlide = updatedSlides.shift();
+      updatedSlides.push(firstSlide);
+      return updatedSlides;
+    });
+  };
 
-            <div className="Memories-card">
-                <img src="https://undiscoveredmountains.in/storage/4.webp" alt="Undiscover Tours" />
-                <div className="content">
-                    <h3>Undiscover Tours</h3>
-                    <button className='btn'>View Tours</button>
-                </div>
-            </div>
+  // Handle previous slide function
+  const handlePrev = () => {
+    setSlides((prevSlides) => {
+      const updatedSlides = [...prevSlides];
+      const lastSlide = updatedSlides.pop();
+      updatedSlides.unshift(lastSlide);
+      return updatedSlides;
+    });
+  };
 
-            <div className="Memories-card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQQUTWpmh5m8O49u-gBTA7mCXWF_npd4CGUg&s" alt="Experts Plan" />
-                <div className="content">
-                    <h3>Let Our Experts Plan <br />Your 2025 Journey</h3>
-                    <button className='btn'>View Tours</button>
-                </div>
+  return (
+    <div className="memories-container">
+      <div className="image-container">
+        <div className="slide">
+          {slides.map((slide, index) => (
+            <div
+              key={slide.id}
+              className="item"
+              style={{ backgroundImage: `url(${slide.image})` }}
+            >
+              <div className="content">
+                <div className="name">{slide.name}</div>
+                <div className="des">{slide.description}</div>
+                <button className="see-more">See More</button>
+              </div>
             </div>
-
-            <div className="Memories-card">
-                <img src="https://thetempleguru.com/wp-content/uploads/2023/03/Kedarnath-temple-jyotirling-11.jpg" alt="Religious Tours" />
-                <div className="content">
-                    <h3>Religious Tours</h3>
-                    <button className='btn'>View Tours</button>
-                </div>
-            </div>
-
-            <div className="Memories-card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX5nAFr1eEet4r1lktBFv0Q2vqCF54W3bx6g&s" alt="Solo Travels" />
-                <div className="content">
-                    <h3>Solo Travels</h3>
-                    <button className='btn'>View Tours</button>
-                </div>
-            </div>
-
-            <div className="Memories-card">
-                <img src="https://media.istockphoto.com/id/1450052495/photo/happy-family-with-car-travel-road-trip-summer-vacation-in-car-in-the-sunset-dad-mom-and.jpg?s=612x612&w=0&k=20&c=yj4tsXvfofdNC9yaWotQrJ0CJPeMQoU2zffXFsDCOxM=" alt="Solo Travels" />
-                <div className="content">
-                    <h3>Private Touring</h3>
-                    <button className='btn'>View Tours</button>
-                </div>
-            </div>
+          ))}
         </div>
-    );
+
+        <div className="memories-button">
+          <button className="prev" onClick={handlePrev}>
+            <i className="fa-solid fa-arrow-left"></i>
+          </button>
+          <button className="next" onClick={handleNext}>
+            <i className="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Memories;

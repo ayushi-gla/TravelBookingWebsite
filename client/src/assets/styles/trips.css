@@ -1,10 +1,14 @@
 .trips_wrapper{
     background-color: #f9f9fb;
     color: black;
-    padding: 80px 13%;
-    padding-top: 5px;
-    margin-top: 0%;
+    padding: 80px 50px;
+    padding-top: 10vh;
     
+}
+.trips_wrapper h2{
+    font-size: 5rem;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 .cards{
     display: grid;

@@ -32,7 +32,7 @@ const Register = () => {
     }
 
     try {
-      const response = await axios.post("https://auth-backend-08hn.onrender.com/register", formData)
+      const response = await axios.post("http://localhost:3000/register", formData)
       if (response.status === 201) {
         setAuth({
           token: response.data.token,

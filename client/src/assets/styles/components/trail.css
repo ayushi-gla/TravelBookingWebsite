@@ -1,0 +1,38 @@
+/* Add this to a CSS file like styles.css or inside a <style> tag */
+.trail-wrapper {
+   position: relative;
+   overflow: hidden;
+ 
+ }
+ 
+ .trail-section {
+   display: grid;
+   height: 100vh;
+   width: 100%;
+   place-content: center;
+ }
+ 
+ .trail-text {
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+   font-size: 1.875rem; /* Tailwind's text-3xl ~ 30px */
+   font-weight: bold;
+   text-transform: uppercase;
+   color: black;
+ }
+ 
+ .trail-image {
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 12rem; /* Tailwind h-48 ~ 192px */
+   width: auto;
+   pointer-events: none;
+   border-radius: 0.75rem; /* Tailwind rounded-xl */
+   border: 2px solid black;
+   background-color: #171717; /* Tailwind bg-neutral-900 */
+   object-fit: cover;
+   opacity: 0;
+ }
+ 

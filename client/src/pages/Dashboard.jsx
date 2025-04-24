@@ -3,10 +3,11 @@ import "../assets/styles/dashboard.css";
 import Header from "../components/Header";
 import Marquee from "../components/Marquee";
 import About from "../components/About";
-import ImageSwiper from "../components/Swiper";
+import TravelerType from "../components/dashboard/TravelerType"
 import Memories from "../components/Memories";
 import Trips from "../components/Trips";
 import Footer from "../components/common/Footer";
+import { ImageTrail } from "../components/dashboard/ImageTrail";
 
 const Dashboard = () => {
   return (
@@ -31,11 +32,14 @@ const Dashboard = () => {
         <div className="section-service">
           <Marquee />
         </div>
+        <div className="trail">
+        <ImageTrail/>
+        </div>
         <Memories />
-
-        <h1 style={{ color: "black" }}>(Yha Kuch likh lena) </h1>
+        <TravelerType/>
         <About />
       </div>
+      
       <Footer />
     </>
   );

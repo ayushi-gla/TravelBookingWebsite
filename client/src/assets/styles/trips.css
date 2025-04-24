@@ -1,79 +1,117 @@
-.trips_wrapper{
-    background-color: #f9f9fb;
-    color: black;
-    padding: 80px 50px;
-    padding-top: 10vh;
-    
+.trips_wrapper {
+  background-color: var(--light-gray);
+  color: black;
+  padding: 2rem 2rem;
+  padding-top: 20vh;
 }
-.trips_wrapper h2{
-    font-size: 5rem;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-.cards{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 30px;
-}
-.cards .card{
-    width: 100%;
-    height: 420px;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    border: 0.8px solid rgba(131, 131, 131, 0.5);
-    transition: .6s;
-}
-.cards .card:hover{
-    border-color: rgb(231, 76, 60);
-}
-.cards .card img{
-    width: 100%;
-    height: 40%;
-    border-radius: 12px;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-}
-.cards .card .TripsContent{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    justify-content: space-between;
-    height: 50%;
-    padding: 28px;
-    padding-top: 15px;
+.trips_wrapper h2 {
+  font-size: 6.5rem;
+  font-weight: 800;
+  color: rgb(1, 55, 52);
+  letter-spacing: 1px;
+  margin: 0;
 }
 
-.Pricing , .TripsDetail{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
 }
-.star-icon{
-    color: #6b7280;
+
+.cards .card {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 420px;
+  border-radius: 12px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.4s ease;
+  background-color: #fefefe;
 }
-.Place{
-    color: black;
+
+.cards .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 6px 6px 18px rgba(0, 0, 0, 0.15);
 }
-.book{
-    height: 42px;
-    width: 80px;
-    background: linear-gradient(270deg , rgb(255,75,55) , rgb(156, 16 , 0));
-    border-radius: 30px;
-    color: #fff;
-    border: none;
-    font-size: 12px;
-    cursor: pointer;
-    outline: none;
+
+.cards .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
 }
-.text{
-    font-size: 10px;
+
+.cards .card::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to top, rgb(14, 14, 14), transparent 95%);
+  z-index: 1;
+  transition: 0.4s ease;
 }
-.rating i{
-    color: rgb(231, 76, 60);
+
+.cards .card .TripsContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  color: white;
 }
-.Pricing .price{
-    font-size: 13px;
-    font-weight: 600;
-    color: rgb(231, 76, 60);
+
+.Pricing,
+.TripsDetail {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.star-icon {
+  color: #f5c518;
+}
+
+.Place {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.book {
+  height: 42px;
+  width: 90px;
+  background: linear-gradient(to bottom, rgb(15, 15, 15), rgb(52, 199, 172));
+  border-radius: 30px;
+  color: #fff;
+  font-weight: 600;
+
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+.book:hover {
+  background: black;
+}
+
+.text {
+  font-size: 11px;
+}
+
+.rating i {
+  color: rgb(231, 76, 60);
+}
+
+.Pricing .price {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(255, 125, 100);
 }

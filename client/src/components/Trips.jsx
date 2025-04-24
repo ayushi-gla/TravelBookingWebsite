@@ -8,7 +8,7 @@ const Trips = () => {
     <>
       <Header />
       <div className="trips_wrapper">
-        <h2>Popular Trips</h2>
+        <h2>trips</h2>
 
         <div className="cards">
           <div className="card">
